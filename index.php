@@ -33,20 +33,77 @@
 
 
     ?>
+<br>
+
+<hr>
 
 
     </div>
 
-
-
-    <!-- <main>
-        <h2>Table
+<div>
 
 
 
 
-        </h2>
-    </main> -->
+<?php
+
+foreach ($hotels as $hotel) {
+    foreach ($hotel as $key => $value) {
+
+        echo "$key: $value";
+
+    }
+
+}
+
+
+?>
+</div>
+
+    <main>
+
+    <table class="table">
+
+
+    <thead>
+
+    <tr>
+      <th scope="col">#</th>
+      
+      
+
+
+
+    <?php
+    
+    foreach ($hotels[0] as $key => $value) {
+        echo "<th scope=\"col\">" . ucfirst($key) . "</th>";
+    }
+    
+    ?>
+
+
+
+    </tr>
+    </thead>
+
+
+    <tbody>
+        <?php
+        foreach ($hotels as $index => $hotel) {
+            echo "<tr>";
+            echo "<th scope=\"row\">" . ($index + 1) . "</th>";
+            foreach ($hotel as $value) {
+                echo "<td>" . $value . "</td>";
+            }
+            echo "</tr>";
+        }
+        ?>
+    </tbody>
+
+    
+</table>
+    </main>
     </div>
 
 </body>
