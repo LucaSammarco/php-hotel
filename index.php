@@ -15,52 +15,14 @@
 <body>
 
 <div class="container">
-    <header class="d-flex justify-content-center mt-5">
-        <h1>Hotel</h1>
-    </header>
 
-    <div class="provaPhp mt-5">
-    <p>prova</p>
-
-    <?php
-
-    foreach ($hotels as $hotel => $data) {
-
-        echo $data["name"] . " " . $data["description"] . " " . $data["parking"] . " " . $data["vote"] . " " . $data["distance_to_center"] . '<br>';
-
-
-    }
-
-
-    ?>
-<br>
-
-<hr>
-
-
-    </div>
-
-<div>
+<header class="d-flex justify-content-center mt-5"><h1>Hotel</h1></header>
 
 
 
-
-<?php
-
-foreach ($hotels as $hotel) {
-    foreach ($hotel as $key => $value) {
-
-        echo "$key: $value";
-
-    }
-
-}
-
-
-?>
 </div>
 
-    <main>
+    <main class="mt-5">
 
     <table class="table">
 
@@ -89,19 +51,23 @@ foreach ($hotels as $hotel) {
 
 
     <tbody>
-        <?php
-        foreach ($hotels as $index => $hotel) {
-            echo "<tr>";
-            echo "<th scope=\"row\">" . ($index + 1) . "</th>";
-            foreach ($hotel as $value) {
+    <?php
+    foreach ($hotels as $index => $hotel) {
+        echo "<tr>";
+        echo "<th scope=\"row\">" . ($index + 1) . "</th>";
+        foreach ($hotel as $key => $value) {
+            if ($key == 'parking') {
+                echo "<td>" . ($value ? 'Yes' : 'No') . "</td>";
+            } else {
                 echo "<td>" . $value . "</td>";
             }
-            echo "</tr>";
         }
-        ?>
-    </tbody>
+        echo "</tr>"; 
+    }
+    ?>
+</tbody>
 
-    
+
 </table>
     </main>
     </div>
